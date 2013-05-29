@@ -1,0 +1,61 @@
+{
+  "items": 
+  [
+    {
+      "id": "1",
+      "bez": "img1",
+      "src": "images/img1.jpg",
+      "template": "",
+      "title" : "Bild 1",
+      "description" : "Lorem ipsum dolor sit amet</h3>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": "2",
+      "bez": "img2",
+      "src": "images/img2.jpg",
+      "template": "",
+      "title" : "Bild 2",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": "3",
+      "bez": "img3",
+      "src": "images/img3.jpg",
+      "template": "",
+      "title" : "Bild 3",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": "4",
+      "bez": "img4",
+      "src": "images/img4.jpg",
+      "template": "",
+      "title" : "Bild 4",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": "5",
+      "bez": "img5",
+      "src": "images/img5.jpg",
+      "template": "",
+      "title" : "Bild 5",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+        {
+      "id": "6",
+      "bez": "img6",
+      "src": "images/img6.jpg",
+      "template": "",
+      "title" : "Bild 6",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    },
+    {
+      "id": "7",
+      "bez": "img7",
+      "src": "images/img7.jpg",
+      "template": "",
+      "title" : "Bild 7",
+      "description" : "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    }
+  ]
+}
