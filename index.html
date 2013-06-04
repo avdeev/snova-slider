@@ -10,39 +10,43 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <!-- <script src="js/jquery-1.10.0.js"></script> -->
-
+    <script src="js/jquery-1.4.2.min.js"></script>
     <script src="js/cloud-carousel.1.0.5.js"></script>
     <script>
       $(function(){
         $("#carousel").CloudCarousel({     
           xPos: $('body').width() / 2,
-          yPos: 100
+          yPos: 100,
+          bringToFront: true,
+          speed: 0.04
         });
+
+        var faceOrder = [1, 3, 2, 4, 5, 6, 7, 8];
+        var $faces = $('img.cloudcarousel');
+
+        $('#bNext').bind('click', function(){
+          var $face = $faces.first().next();
+          $face.trigger('click');
+          var count = 0;
+          var intervalId = setInterval(function(){
+            $face = $face.next();
+            if (!$face.length) {
+              $face = $faces.first();
+            }
+            $face.trigger('click');
+            if(count++ > 10) clearInterval(intervalId);
+          }, 800);
+        });
+
       });
     </script>
 
-    <!-- <link rel="stylesheet" href="css/jquerycarousel.css">
-    <script src="js/carousel-0.9.3.js"></script>
-    <script src="js/carouselani.js"></script>
-    <script>
-      $(function() {
-        var $carousel = $('#carousel').jCarousel({
-          width: 1280,
-          height: 500,
-          showImageTitle: false,
-          speed: 10,
-          reflection: 0
-        });
-      });
-    </script> -->
-
   </head>
   <body>
-    <div id="carousel" style="width:100%;height:100%;">
-      <img src="faces/face_1.jpg" class="CloudCarousel">
+    <div id="carousel" style="width:100%;height:90%;">
+      <img src="faces/face_1.jpg" class="cloudcarousel">
       <img src="faces/face_2.jpg" class="cloudcarousel">
       <img src="faces/face_3.jpg" class="cloudcarousel">
       <img src="faces/face_4.jpg" class="cloudcarousel">
@@ -51,5 +55,6 @@
       <img src="faces/face_7.jpg" class="cloudcarousel">
       <img src="faces/face_8.jpg" class="cloudcarousel">
     </div>
+    <button id="bNext" class="btn btn-large btn-primary" style="position: relative;left: 50%;margin: 5px 0 5px -71px;">Следующий</button>
   </body>
 </html>
