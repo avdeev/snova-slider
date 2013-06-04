@@ -1,207 +1,55 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-  <title>Карусель для фотографий</title>
-  <meta charset="utf-8">
-  <link href="css/style.css" type="text/css" rel="stylesheet" />
-  <link href="css/jquerycarousel.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="js/jquery-1.10.0.js"></script>
-  <script type="text/javascript" src="js/carousel-0.9.3.js"></script>
-  <script type="text/javascript" src="js/carouselani.js"></script>
-  <script type="text/javascript" src="js/functions.js"></script>
-  <script type="text/javascript">
-    $(function(){            
-      $('#carousel').jCarousel();
-      initPage(); 
-      // window.setTimeout('helpLoading()', 800);
-     });
-  </script>
-</head>
-<body>
-  <div id="carouselOuter">
-    <div id="carousel">
-        <input type="image" class="carouselPrev" style="top: 250px; left: 15px; width:17px; height: 77px;" src="images/left.gif" value="Left">
-        <input type="image" class="carouselNext" style="top: 250px; left: 610px; width:17px; height: 77px;" src="images/right.gif" value="Right">
-      <div id="htmlImages" style="display: none;">
-        <img src="images/island1.jpg" class="carousel">
-        <img src="images/island2.jpg" class="carousel">
-        <img src="images/island3.jpg" class="carousel">
-        <img src="images/island4.jpg" class="carousel">
-        <img src="images/island5.jpg" class="carousel">
-        <img src="images/island6.jpg" class="carousel">
-        <img src="images/island7.jpg" class="carousel">
-      </div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Snova Slider</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <!-- <script src="js/jquery-1.10.0.js"></script> -->
+
+    <script src="js/cloud-carousel.1.0.5.js"></script>
+    <script>
+      $(function(){
+        $("#carousel").CloudCarousel({     
+          xPos: $('body').width() / 2,
+          yPos: 100
+        });
+      });
+    </script>
+
+    <!-- <link rel="stylesheet" href="css/jquerycarousel.css">
+    <script src="js/carousel-0.9.3.js"></script>
+    <script src="js/carouselani.js"></script>
+    <script>
+      $(function() {
+        var $carousel = $('#carousel').jCarousel({
+          width: 1280,
+          height: 500,
+          showImageTitle: false,
+          speed: 10,
+          reflection: 0
+        });
+      });
+    </script> -->
+
+  </head>
+  <body>
+    <div id="carousel" style="width:100%;height:100%;">
+      <img src="faces/face_1.jpg" class="CloudCarousel">
+      <img src="faces/face_2.jpg" class="cloudcarousel">
+      <img src="faces/face_3.jpg" class="cloudcarousel">
+      <img src="faces/face_4.jpg" class="cloudcarousel">
+      <img src="faces/face_5.jpg" class="cloudcarousel">
+      <img src="faces/face_6.jpg" class="cloudcarousel">
+      <img src="faces/face_7.jpg" class="cloudcarousel">
+      <img src="faces/face_8.jpg" class="cloudcarousel">
     </div>
-  </div>
-  <div id="carouselConfig">
-    <input type="range" id="isRange" style="display:none;">
-      <table cellpadding="0" cellspacing="0" border="0" width="100%">
-        <tr>
-          <td width="33%" valign="top" align="left">
-            <fieldset align="left">
-            <legend>General Settings</legend>  
-            <table width="100%">
-              <tr>
-                <td valign="top" align="left">width:<span class="smallTextGrey">(px)</span></td>
-                <td width="100%" align="left">
-                  <div id="width" class="cvaldiv">
-                    <input type="text" id="_width" class="cvalinput">
-                    <input type="range" min="1" max="1600" value="" id="__width" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">height:<span class="smallTextGrey">(px)</span></td>
-                <td width="100%" align="left">
-                   <div id="height" class="cvaldiv">
-                    <input type="text" id="_height" class="cvalinput">
-                    <input type="range" min="1" max="1200" value="" id="__height" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">speed:</td> 
-                <td width="100%" align="left">
-                  <div id="speed" class="cvaldiv">
-                    <input type="text" id="_speed" class="cvalinput">
-                    <input type="range" min="-500" max="500" value="" id="__speed" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">maxSpeed:</td>
-                <td width="100%" align="left">
-                  <div id="maxSpeed" class="cvaldiv">
-                    <input type="text" value="" id="_maxSpeed" class="cvalinput" size="7" maxlength="7">
-                    <input type="range" min="0" max="10" value="" id="__maxSpeed" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">perspective:</td>
-                <td width="100%" align="left">
-                  <div id="perspective" class="cvaldiv">
-                    <input type="text" id="_perspective" class="cvalinput">
-                    <input type="range" min="0" max="300" value="" id="__perspective" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">dynamic:</td>
-                <td width="100%" align="left">
-                  <div id="dynamic" class="cvaldiv">
-                    <input type="text" id="_dynamic" class="cvalinput">
-                    <input type="range" min="0" max="300" value="" id="__dynamic" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </fieldset>
-          <fieldset  align="left">
-              <legend>Other Settings</legend>
-              <table width="100%">
-                <tr>
-                  <td valign="top" align="left">showImageTitle:</td>
-                  <td width="100%" align="left">
-                    <div id="showImageTitle" class="cvaldiv">
-                      <input type="checkbox" value="" id="_showImageTitle" class="cvalinput">  
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td valign="top" align="left">JSON:</td>
-                  <td width="100%" align="left">
-                    <div id="jsonScript" class="cvaldiv">
-                      <input type="checkbox" value="" id="_jsonScript" class="cvalinput">  
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td valign="top" align="left">showButtons:</td>
-                  <td width="100%" align="left">
-                    <div id="showButtons" class="cvaldiv">
-                      <input type="checkbox" value="" id="_showButtons" class="cvalinput">  
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </fieldset>
-         </td>
-         <td width="33%" valign="top" align="center"> 
-          <fieldset align="left">
-            <legend>Reflection</legend>
-            <table width="100%">
-              <tr>
-                <td valign="top" align="left">reflection:<span class="smallTextGrey">(%)</span></td>
-                <td width="100%" align="left">
-                  <div id="reflection" class="cvaldiv">
-                    <input type="text" id="_reflection" class="cvalinput">
-                    <input type="range" min="0" max="100" value="" id="__reflection" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">reflectionStart:</td>
-                <td width="100%" align="left">
-                  <div id="reflectionStart" class="cvaldiv">
-                    <input type="text" id="_reflectionStart" class="cvalinput">
-                    <input type="range" min="0" max="100" value="" id="__reflectionStart" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">reflectionEnd:</td>
-                <td width="100%" align="left">
-                  <div id="reflectionEnd" class="cvaldiv">
-                    <input type="text" id="_reflectionEnd" class="cvalinput">
-                    <input type="range" min="0" max="100" value="" id="__reflectionEnd" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              </table>
-          </fieldset> 
-          <fieldset align="left">
-            <legend>Overlay</legend>
-            <table width="100%">
-              <tr>
-                <td valign="top" align="left">perspect.:<span class="smallTextGrey">(%)</span></td>
-                <td width="100%" align="left">
-                  <div id="overlay" class="cvaldiv">
-                    <input type="text" value="" id="_overlay" class="cvalinput" size="7" maxlength="7">
-                    <input type="range" min="0" max="100" value="" id="__overlay" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">global:<span class="smallTextGrey">(%)</span></td>
-                <td width="100%" align="left">
-                  <div id="overlayGlobal" class="cvaldiv">
-                    <input type="text" value="" id="_overlayGlobal" class="cvalinput" size="7" maxlength="7">
-                    <input type="range" min="0" max="100" value="" id="__overlayGlobal" class="cvalinput cvalrange">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td valign="top" align="left">color:</td>
-                <td width="100%" align="left">
-                  <div id="overlayColor" class="cvaldiv">
-                    <input type="text" value="" id="_overlayColor" class="cvalinput" size="10" maxlength="7">  
-                  </div>
-                </td>
-              </tr>
-            </table>
-            </fieldset>
-          </td>
-          <td width="33%" valign="top" align="right">
-            <fieldset align="left">
-            <legend>Values</legend>
-              <div id="carouselValues" style="width: 100%; height: 100%; text-align:left;"></div>
-            </fieldset><br />
-            
-          </td>
-        </tr>
-      </table>
-      <input type="button" id="resetCarousel" class="btn" value="Reset All">
-    </div><!-- carouselConfig -->
-</body>
+  </body>
 </html>
