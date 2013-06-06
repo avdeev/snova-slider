@@ -12,56 +12,95 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+      #carousel {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
     <script src="js/jquery-1.4.2.min.js"></script>
     <script src="js/cloud-carousel.1.0.5.js"></script>
+    <script src="settings.js"></script>
     <script>
       $(function(){
 
-        // settings
-        var facesCount = 8;
-        var faceToChoose = 1;
-
         $carousel = $('#carousel');
+        currentFaceToChoose = 0;
+        currentFace = 1;
+        isStopped = false;
 
-        for (var i = 1; i < facesCount; i++) {
-          $carousel.append($('<img>', {
-            src: 'faces/face_' + i + '.jpg',
-            class: 'cloudcarousel',
-            id: 'face_' + i
-          }));
+        var generateFaces = function(facesCount) {
+          for (var i = 1; i <= facesCount; i++) {
+            $carousel.append($('<img>', {
+              src: 'faces/face_' + i + '.jpg',
+              class: 'cloudcarousel',
+              id: 'face_' + i
+            }));
+          }
+
+          $carousel.CloudCarousel({     
+            xPos: $('body').width() / 2,
+            yPos: 100,
+            speed: 0.07,
+          });
         }
 
-        $carousel.CloudCarousel({     
-          xPos: $('body').width() / 2,
-          yPos: 100,
-          bringToFront: true,
-          speed: 0.07,
-          autoRotate: 'left',
-          autoRotateDelay: 700
-        });
+        var showVideo = function(face) {
+          $carousel.fadeOut(function(){
+            $(this).after($('<video>', {
+              src: 'video/' + face.video,
+              autoplay: true,
+              width: '100%',
+              height: '100%'
+            }));
+          });
+        }
+
+        var startRotate = function() {
+          var rotateIntervalId = setInterval(function(){
+            $carousel.data('cloudcarousel').rotate(-1);
+
+            currentFace++;
+            if (currentFace > facesCount) {
+              currentFace = 1;
+            }
+
+            console.log('currentFace', currentFace);
+
+            if (isStopped && currentFace == facesToChoose[currentFaceToChoose].number) {
+              clearInterval(rotateIntervalId);
+              isStopped = false;
+              setTimeout(function(){
+                showVideo(facesToChoose[currentFaceToChoose]);
+              }, 5000);
+            }
+          }, 1500);
+        }
+
+        generateFaces(facesCount);        
+        startRotate();
 
         $(document).bind('keyup', function(e){
           if (e.keyCode == 32) {
-            console.log('32');
-            $('#face_' + faceToChoose).click();
-            setTimeout(function(){
-              $carousel.fadeOut(function(){
-                $(this).after($('<video>', {
-                  src: 'video/video_' + faceToChoose + '.mp4',
-                  autoplay: true,
-                  width: '100%',
-                  height: '100%'
-                }));
+            isStopped = true;
+          } else if (e.keyCode == 13) {
+            isStopped = false;
+            if ($carousel.is(':hidden')) {
+              $('video').remove();
+              $carousel.fadeIn(function(){
+                currentFaceToChoose++;
+                if (currentFaceToChoose in facesToChoose) {
+                  startRotate();
+                }
               });
-            }, 3000);
+            }
           }
         });
 
       });
     </script>
-
   </head>
   <body>
-    <div id="carousel" style="width:100%;height:100%;"></div>
+    <div id="carousel"></div>
   </body>
 </html>
