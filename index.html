@@ -16,28 +16,45 @@
     <script src="js/cloud-carousel.1.0.5.js"></script>
     <script>
       $(function(){
-        $("#carousel").CloudCarousel({     
+
+        // settings
+        var facesCount = 8;
+        var faceToChoose = 1;
+
+        $carousel = $('#carousel');
+
+        for (var i = 1; i < facesCount; i++) {
+          $carousel.append($('<img>', {
+            src: 'faces/face_' + i + '.jpg',
+            class: 'cloudcarousel',
+            id: 'face_' + i
+          }));
+        }
+
+        $carousel.CloudCarousel({     
           xPos: $('body').width() / 2,
           yPos: 100,
           bringToFront: true,
-          speed: 0.04
+          speed: 0.07,
+          autoRotate: 'left',
+          autoRotateDelay: 700
         });
 
-        var faceOrder = [1, 3, 2, 4, 5, 6, 7, 8];
-        var $faces = $('img.cloudcarousel');
-
-        $('#bNext').bind('click', function(){
-          var $face = $faces.first().next();
-          $face.trigger('click');
-          var count = 0;
-          var intervalId = setInterval(function(){
-            $face = $face.next();
-            if (!$face.length) {
-              $face = $faces.first();
-            }
-            $face.trigger('click');
-            if(count++ > 10) clearInterval(intervalId);
-          }, 800);
+        $(document).bind('keyup', function(e){
+          if (e.keyCode == 32) {
+            console.log('32');
+            $('#face_' + faceToChoose).click();
+            setTimeout(function(){
+              $carousel.fadeOut(function(){
+                $(this).after($('<video>', {
+                  src: 'video/video_' + faceToChoose + '.mp4',
+                  autoplay: true,
+                  width: '100%',
+                  height: '100%'
+                }));
+              });
+            }, 3000);
+          }
         });
 
       });
@@ -45,16 +62,6 @@
 
   </head>
   <body>
-    <div id="carousel" style="width:100%;height:90%;">
-      <img src="faces/face_1.jpg" class="cloudcarousel">
-      <img src="faces/face_2.jpg" class="cloudcarousel">
-      <img src="faces/face_3.jpg" class="cloudcarousel">
-      <img src="faces/face_4.jpg" class="cloudcarousel">
-      <img src="faces/face_5.jpg" class="cloudcarousel">
-      <img src="faces/face_6.jpg" class="cloudcarousel">
-      <img src="faces/face_7.jpg" class="cloudcarousel">
-      <img src="faces/face_8.jpg" class="cloudcarousel">
-    </div>
-    <button id="bNext" class="btn btn-large btn-primary" style="position: relative;left: 50%;margin: 5px 0 5px -71px;">Следующий</button>
+    <div id="carousel" style="width:100%;height:100%;"></div>
   </body>
 </html>
