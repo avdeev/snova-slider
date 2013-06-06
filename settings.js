@@ -3,9 +3,17 @@ facesCount = 8;
 
 // номера лиц на которых нужно остановиться, начиная с единицы
 facesToChoose = [{
-  number: 4,
-  video: 'video_4.mp4'
+  number: 4
 }, {
   number: 1,
   video: 'video_1.mpg'
 }];
+
+// задержка перед появлением видео
+videoDelay = 5000;
+
+// задержка переключения картинок в милисекундах
+rotateDelay = 1500;
+
+// скорость вращения
+rotateSpeed = 0.07;

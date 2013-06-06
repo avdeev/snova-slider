@@ -41,7 +41,7 @@
           $carousel.CloudCarousel({     
             xPos: $('body').width() / 2,
             yPos: 100,
-            speed: 0.07,
+            speed: rotateSpeed,
           });
         }
 
@@ -70,11 +70,13 @@
             if (isStopped && currentFace == facesToChoose[currentFaceToChoose].number) {
               clearInterval(rotateIntervalId);
               isStopped = false;
-              setTimeout(function(){
-                showVideo(facesToChoose[currentFaceToChoose]);
-              }, 5000);
+              if (typeof facesToChoose[currentFaceToChoose].video != 'undefined' && facesToChoose[currentFaceToChoose].video) {
+                setTimeout(function(){
+                  showVideo(facesToChoose[currentFaceToChoose]);
+                }, videoDelay);
+              }
             }
-          }, 1500);
+          }, rotateDelay);
         }
 
         generateFaces(facesCount);        
